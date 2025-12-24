@@ -1,10 +1,11 @@
                                                  < Object-Oriented Programming: OOPS >
 
 
-Object-Oriented Programming (OOP) is a programming style where we design programs using objects that represent real-world entities.
+OOPS (Object-Oriented Programming System) is a programming approach based on objects and classes.
+It helps in organizing code by combining data and methods, making programs reusable and easy to maintain.
 
-Java is a purely object-oriented language (almost everything is an object).
-
+Java is not a purely object-oriented language.
+It is an object-oriented language with some non-object features.
 ------------------------------------    -What is an Object?---------------------------------------------------------------------------------
 
 An object is a real-world entity that has:
@@ -23,7 +24,8 @@ Behavior: start(), stop(), accelerate()
 
  -------------------------------------------------------------🔹 What is a Class?-------------------------------------------------------------
 
-A class is a blueprint or template from which objects are created.
+A class is a blueprint or template used to create objects. 
+It defines the properties (variables) and behaviors (methods) that the objects will have.
  
 class Car {
     String color;
@@ -56,7 +58,7 @@ Encapsulation is an OOP concept that binds data and methods together and protect
  This  is the process of hiding data and allowing access to it only through methods.
 
 
-example :-  class Student {
+example 1 :-  class Student {
     private int age;                                        // data hidden
 
     
@@ -85,7 +87,7 @@ class Main {
  
 
 
-example :- 
+example 2 :- 
 class Bank {
 
     private int balance;                                     // data hidden
@@ -166,7 +168,7 @@ Ans :- No, a child class cannot access private members of a parent class because
 
 class Child extends Parent {
     void show() {
-        // System.out.println(x);  // ❌ Compile-time error
+        System.out.println(x);  // ❌ Compile-time error
     }
 }
  
@@ -376,3 +378,307 @@ Call parent class constructor (super())
 📌 It refers to the immediate parent class object.  
 
 
+------------------------------------------------------------------------ Polymorphism -----------------------------------------------------
+polymorphism is a features  of object oriented  programming which allows different behaviours of an object in  different situationa this is called polymorphism .
+ Polymorphism is derived from 2 Greek words: poly and morphs. 
+The word "poly" means many and "morphs" means forms. So polymorphism means many forms.
+
+
+Why Polymorphism is used?
+
+Makes code flexible
+
+Improves readability
+
+Supports runtime decision making
+
+Helps in code reusability
+
+  ----- >>>>  Types of Polymorphism <<<<<<<<-----
+   
+
+Polymorphism allows the same method name to perform different actions based on the object.
+
+
+There are two types of polymorphism in Java:
+
+Compile-time Polymorphism(Method Overloading).
+Runtime Polymorphism(Method Overriding).
+We can perform polymorphism in Java by method overloading and method overriding.
+
+
+
+------------------------------------------------------------------- ✅ Method Overloading-----------------------------------------------------
+
+same class me same method name, but different parameters.
+
+Method Overloading allows multiple methods with the same name but different parameter lists in a class.  
+
+Java compiler parameters dekh kar decide karta hai kaunsa method call hoga, isliye ise
+ => Compile-time Polymorphism kehte hain.
+
+
+🔹 Rules of Method Overloading
+
+Method overloading tab hota hai jab:
+
+1.Parameters ka number different ho
+
+2.Parameters ka type different ho
+
+3.Parameters ka order different ho
+
+❌ Sirf return type change karne se overloading nahi hoti
+
+
+
+1 = Parameters ka number different ho
+
+example => class Calculator {
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+}
+
+
+2 = Parameters ka type different ho
+example => class Calculator {
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    double add(double a, double b) {
+        return a + b;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Calculator s = new Calculator();
+      System.out.print(s.add(45,65));
+     System.out.print(s.add(45.1,65.3));
+   
+    }
+}
+
+
+3 = Parameters ka order different ho
+
+class Display {
+    void show(int a, String b) {
+        System.out.println(a + " " + b);
+    }
+
+    void show(String b, int a) {
+        System.out.println(b + " " + a);
+    }
+}
+
+------------------------------------------------------------ ✅ Method Overriding--------------------------------------------------------------
+
+Method Overriding is redefining a parent class method in the child class with  same method name and parameters. 
+
+👉 Method Overriding tab hoti hai jab child class, parent class ke method ko same name, same parameters ke saath redefine karti hai.
+
+Ye Runtime Polymorphism ka example hai.
+
+
+example ->  basic method overiding 
+
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+                                                                      /// Without @verride keyword /////////////
+class Dog extends Animal {
+                         
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Animal obj = new Dog();
+        obj.sound();
+    }
+}
+
+
+
+example ->  Using @override keyword  
+
+
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override                                                     ///// with @Override Keyword./////////////
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Animal obj = new Dog();
+        obj.sound();
+    }
+}
+
+🔹 Rules of Method Overriding
+
+1️⃣ Method name same hona chahiye
+2️⃣ Parameters same hone chahiye
+3️⃣ Inheritance required (extends)
+4️⃣ Access modifier reduce nahi kar sakte
+5️⃣ static, final, private methods override nahi hote
+6️⃣ Return type same ya covariant ho sakta hai
+
+
+
+
+---------------------------------------------------------------- 🔹 Abstraction -----------------------------------------------------------------
+
+1️⃣ What is Abstraction?
+
+Abstraction is an Object-Oriented Programming concept that focuses on showing only essential features of an object and hiding the implementation details.
+
+👉 It tells what an object does, not how it does it.
+
+✔ Simple Definition
+
+Abstraction is the process of hiding implementation details and showing only functionality to the user. 
+
+
+2️⃣ Why do we need Abstraction?
+
+Abstraction is used to:
+
+Reduce complexity
+
+Hide internal working
+
+Improve security
+
+Increase flexibility
+
+Support loose coupling
+
+✔ Real-Life Example
+
+When you drive a car:
+
+You use steering, accelerator, and brakes
+
+You do not need to know how the engine works internally
+
+This is abstraction.  
+
+4️⃣ Abstract Class
+🔸 What is an Abstract Class?
+
+An abstract class is a class declared using the abstract keyword and may contain abstract and non-abstract methods.
+
+🔸 Important Rules
+
+Abstract class cannot be instantiated
+
+It may contain:
+
+Abstract methods (without body)
+
+Normal methods (with body)
+
+A subclass must override all abstract methods . 
+
+example -> 
+abstract class Animal {
+
+    abstract void sound();   // abstract method
+
+    void sleep() {           // normal method
+        System.out.println("Animal is sleeping");
+    }
+}
+
+class Dog extends Animal {
+
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal a = new Dog();
+        a.sound();
+        a.sleep();
+    }
+}
+
+
+5️⃣ Interface
+🔸 What is an Interface?
+
+An interface is a blueprint of a class that contains only abstract methods (before Java 8).
+
+🔸 Important Rules
+
+Interface methods are public and abstract by default
+
+Variables are public static final
+
+A class uses implements keyword
+
+Supports multiple inheritance
+
+
+example ->
+interface Vehicle {
+    void start();
+}
+
+class Car implements Vehicle {
+
+    public void start() {
+        System.out.println("Car starts");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Vehicle v = new Car();
+        v.start();
+    }
+}
+
+ 🔸 Explanation
+
+Interface defines what to do
+
+Class defines how to do
+
+Implementation details are hidden
+
+
+7️⃣ Advantages of Abstraction
+
+✔ Hides unnecessary details
+✔ Improves code maintainability
+✔ Increases security
+✔ Makes system flexible
+✔ Supports loose coupling 
+
+8️⃣ Disadvantages of Abstraction
+
+❌ More code to write
+❌ Can increase complexity for small programs
