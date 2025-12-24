@@ -670,7 +670,7 @@ Class defines how to do
 Implementation details are hidden
 
 
-7️⃣ Advantages of Abstraction
+------------------------7️⃣ Advantages of Abstraction
 
 ✔ Hides unnecessary details
 ✔ Improves code maintainability
@@ -678,7 +678,7 @@ Implementation details are hidden
 ✔ Makes system flexible
 ✔ Supports loose coupling 
 
-8️⃣ Disadvantages of Abstraction
+------------------------8️⃣ Disadvantages of Abstraction
 
 ❌ More code to write
 ❌ Can increase complexity for small programs
